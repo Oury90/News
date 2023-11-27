@@ -1,0 +1,46 @@
+<%- include('partials/header.ejs'); -%>
+
+<div class="lang">
+    <form action="/country" method="post">
+        <input list="browsers" name="lang" size="2">
+        <datalist id="browsers">
+          <option value="us">
+          <option value="fr">
+          <option value="ru">
+          <option value="ca">
+        </datalist>
+        <input type="submit" value="Country">
+    </form>
+</div>
+
+<h2 class="header">News to Day</h2>
+<div class="container articles">
+
+    <% if(locals.newData){ %>
+
+        <% for(let i=0; i< newData.length; i++){ %>
+
+            <div class="polaroid">
+                <img src="<%= newData[i].urlToImage %>" alt="5 Terre" style="width:100%">
+                <div class="content">
+                    <p><%= newData[i].publishedAt %></p>
+                    <h4><%= newData[i].title %>...<a href="<%= newData[i].url %>">readmore</a></h4>
+                    <button type="submit" name="links">links</button>
+                </div>
+            </div>
+
+        <% } %>
+
+    <% } %>
+
+    
+
+
+    
+</div>
+
+
+
+
+
+<%- include("partials/footer.ejs"); %>
